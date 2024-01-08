@@ -11,11 +11,16 @@ namespace ConverterYEA
     {
         static void Main(string[] args)
         {
-            for( int i = 0; i < 100; i++)
+            //for( int i = 0; i < 100; i++)
             {
-                Console.WriteLine(i);
+                //Console.WriteLine(i);
+                Console.WriteLine("Enter your number");
+                int num = 0;
+                int.TryParse(Console.ReadLine(), out num);
+                Console.WriteLine(num * 2);
+                Console.ReadLine();
             }
-            Console.ReadKey();
+            //Console.ReadKey();
         }
     }
 }

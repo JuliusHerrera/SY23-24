@@ -18,7 +18,6 @@ namespace Structures
         struct student
         {
             public string name;
-            public string level;
             public int age;
             public int grade;
             public gender gender;

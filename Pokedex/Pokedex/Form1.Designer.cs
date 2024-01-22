@@ -47,6 +47,7 @@
             this.SaveButton = new System.Windows.Forms.Button();
             this.DebugTB = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.OpenButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.GenNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.HpNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ExpNumericUpDown)).BeginInit();
@@ -218,11 +219,21 @@
             this.label1.TabIndex = 19;
             this.label1.Text = "Debug";
             // 
+            // OpenButton
+            // 
+            this.OpenButton.Location = new System.Drawing.Point(624, 68);
+            this.OpenButton.Name = "OpenButton";
+            this.OpenButton.Size = new System.Drawing.Size(75, 23);
+            this.OpenButton.TabIndex = 20;
+            this.OpenButton.Text = "Open";
+            this.OpenButton.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1094, 464);
+            this.Controls.Add(this.OpenButton);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.DebugTB);
             this.Controls.Add(this.SaveButton);
@@ -273,6 +284,7 @@
         private System.Windows.Forms.Button SaveButton;
         private System.Windows.Forms.TextBox DebugTB;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button OpenButton;
     }
 }
 

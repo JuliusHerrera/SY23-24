@@ -18,15 +18,15 @@ namespace Pokedex
     }
     struct Pokemon
     {
-        string name;
-        string type;
-        string level;
-        attack attacktype;
-        int hp;
-        int exp;
-        bool legendary;
-        bool shiny;
-        int generation;
+        public string name;
+        public string type;
+        public string level;
+        public attack attacktype;
+        public int hp;
+        public int exp;
+        public bool legendary;
+        public bool shiny;
+        public int generation;
     }
     public partial class Form1 : Form
     {
@@ -41,8 +41,30 @@ namespace Pokedex
             {
                 StreamReader inFile = new StreamReader("Pokemon.txt");
                 string s = inFile.ReadToEnd();
+                ReadPokemon(s);
                 inFile.Close();
             }
+        }
+        private void ReadPokemon(string s)
+        {
+            Pokemon p = new Pokemon();
+            String[] fields = s.Split('|');
+            p.name = fields[0];
+            p.type = fields[1];
+            p.level = fields[2];
+            p.attacktype =(attack)Enum.Parse(typeof(attack), fields[3]);
+            p.hp = int.Parse(fields[4]);
+            p.exp = int.Parse(fields[5]);
+            if (fields[6] == "true")
+            {
+                p.legendary = true;
+            }
+            if (fields[7] == "true")
+            {
+                p.shiny = true;
+            }
+            p.generation = int.Parse(fields[8]);
+
         }
 
         private void SaveButton_Click(object sender, EventArgs e)
@@ -54,13 +76,11 @@ namespace Pokedex
             DebugTB.Text += " | ";
             DebugTB.Text += LevelTB.Text;
             DebugTB.Text += " | ";
-            DebugTB.Text += GenNumericUpDown.Value;
+            DebugTB.Text += AttackcomboBox.Text;
             DebugTB.Text += " | ";
             DebugTB.Text += HpNumericUpDown.Value;
             DebugTB.Text += " | ";
             DebugTB.Text += ExpNumericUpDown.Value;
-            DebugTB.Text += " | ";
-            DebugTB.Text += AttackcomboBox.Text;
             DebugTB.Text += " | ";
             if (LegendaryCheckBox.Checked == true)
             {
@@ -71,6 +91,9 @@ namespace Pokedex
             {
                 DebugTB.Text += ShinyCheckBox.Text;
             }
+            DebugTB.Text += " | ";
+            DebugTB.Text += GenNumericUpDown.Value;
+            DebugTB.Text += " | ";
             StreamWriter outfile = new StreamWriter("Pokemon.txt");
             outfile.WriteLine(DebugTB.Text);
             outfile.Close();
